@@ -134,7 +134,7 @@ $settings['file_chmod_directory'] = 0777;
 $settings['file_chmod_file'] = 0666;
 
 # File system settings.
-$config['system.file']['path']['temporary'] = '/tmp';
+$config['system.file']['path']['temporary'] = '../tmp';
 $settings['file_private_path'] = '/var/www/private';
 $config_directories['sync'] = '../config/sync';
 
