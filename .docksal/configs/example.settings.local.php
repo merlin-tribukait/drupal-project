@@ -134,9 +134,9 @@ $settings['file_chmod_directory'] = 0777;
 $settings['file_chmod_file'] = 0666;
 
 # File system settings.
-$config['system.file']['path']['temporary'] = '../tmp';
+$settings['file_temp_path'] = '../tmp';
 $settings['file_private_path'] = '/var/www/private';
-$config_directories['sync'] = '../config/sync';
+$settings['config_sync_directory'] = '../config/sync';
 
 # Hash salt
 $settings['hash_salt'] = '5LRFUrpgG9m6PnYuT9GSNSMTeMgvPC12EV-ZTXsFqrrUZufEbwnwJx7NKvNwM-7PZLUZ4nkYlg';
