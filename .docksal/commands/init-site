@@ -2,9 +2,9 @@
 
 #: exec_target = cli
 
-## Initialize/reinstall site with entity reference layout
+## Initialize/reinstall site
 ##
-## Usage: fin init-lp-with-erl
+## Usage: fin init-lp
 
 # Abort if anything fails
 set -e
@@ -77,25 +77,6 @@ install_media_configs()
         drush cim --partial --source=../.docksal/configs/config_install/media -y
 }
 
-# Install Landingpage with entity reference layout configurations
-install_lp_erl_configs()
-{
-        cd $DOCROOT_PATH
-        drush en entity_reference_layout layout_discovery
-        drush cim --partial --source=../.docksal/configs/config_install/landingpage-with-layout -y
-        drush cr
-}
-
-# Install Landingpage configurations
-install_dashboard_install()
-{
-        cd $DOCROOT_PATH
-        drush en menu_ui redirect_after_login -y
-        drush cim --partial --source=../.docksal/configs/config_install/dashboard -y
-        drush en bc_total_control -y
-        drush cr
-}
-
 #-------------------------- END: Functions --------------------------------
 
 #-------------------------- Execution --------------------------------
@@ -108,6 +89,4 @@ time install_base_modules
 time install_core_configs
 time install_site_configs
 time install_media_configs
-time install_lp_erl_configs
-time install_dashboard_install
 #-------------------------- END: Execution --------------------------------

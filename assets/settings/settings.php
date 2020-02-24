@@ -759,11 +759,15 @@ $settings['file_scan_ignore_directories'] = [
  *
  * Keep this code block at the end of this file to take full effect.
  */
-#
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
-
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
-}
+$databases['default']['default'] = [
+  'database' => getenv('MYSQL_DRUPAL_DATABASE'),
+  'driver' => 'mysql',
+  'host' => getenv('MYSQL_DRUPAL_HOSTNAME'),
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'password' => getenv('MYSQL_DRUPAL_PASSWORD'),
+  'port' => getenv('MYSQL_DRUPAL_PORT'),
+  'prefix' => '',
+  'username' => getenv('MYSQL_DRUPAL_USER'),
+];
+$settings['config_sync_directory'] = '../config/sync';
+$file = DRUPAL_ROOT . '/../assets/settings/settings.' . getenv('ENVIRONMENT') . '.php';
